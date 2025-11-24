@@ -1,0 +1,19 @@
+# Misc
+.vscode
+.claude
+.cursor
+
+.sw*
+
+# Compiled Artifacts
+*.bin
+*.hex
+*.o
+*.map
+*_commands.json
+
+# CMake Collaterals
+build
+
+# Python
+__pycache__
