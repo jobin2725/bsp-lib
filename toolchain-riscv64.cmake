@@ -3,8 +3,9 @@ set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR riscv64)
 
 # Toolchain Path
-set(RISCV_TOOLCHAIN_PATH /opt/toolchain/riscv)
-set(TOOLCHAIN_PREFIX ${RISCV_TOOLCHAIN_PATH}/bin/riscv64-unknown-elf-)
+#set(RISCV_TOOLCHAIN_PATH /opt/toolchain/riscv)
+#set(TOOLCHAIN_PREFIX ${RISCV_TOOLCHAIN_PATH}/bin/riscv64-unknown-elf-)
+set(TOOLCHAIN_PREFIX riscv64-unknown-elf-)
 
 # Compiler Setup
 set(CMAKE_C_COMPILER ${TOOLCHAIN_PREFIX}gcc)

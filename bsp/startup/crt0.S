@@ -7,7 +7,7 @@ _start:
     # Stack Ptr Initialization
     la sp, __stack_top
 
-    # BSS Zero-ization
+    # BSS Zero Initialization
     la t0, __bss_start
     la t1, __bss_end
 
