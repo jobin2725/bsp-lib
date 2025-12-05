@@ -44,3 +44,7 @@ set_source_files_properties(
 set_target_properties(bsp PROPERTIES
     LINK_DEPENDS ${LINKER_SCRIPT}
 )
+# Adder Accelerator driver
+target_sources(bsp PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/drivers/adder_accelerator.c
+)

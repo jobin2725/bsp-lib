@@ -3,9 +3,20 @@ add_executable(hello_world
     hello_world.c
 )
 
+add_executable(test_adder
+    test_adder.c
+)
+
+
 target_link_libraries(hello_world
     bsp
 )
+
+
+target_link_libraries(test_adder
+    bsp
+)
+
 
 # Linker Script Dependency
 set_target_properties(hello_world PROPERTIES
