@@ -2,13 +2,11 @@
 
 ## Pre-requisites
 * RISC-V Toolchain
-* Qemu Emulator
 
 ## Setup
-### Qemu
-```bash
-apt-get update
-apt-get install -y qemu-system-misc
+### Additional Packages
+```
+apt-get install -y cmake ninja-build git device-tree-compiler
 ```
 
 ### RISC-V Toolchain
@@ -19,18 +17,30 @@ tar -xzf riscv64-elf-ubuntu-*.tar.gz -C /opt/
 export PATH=/opt/riscv/bin:$PATH
 ```
 
-### Additional Packages
-```
-apt-get install -y cmake ninja-build git device-tree-compiler
-```
+### Custom Qemu Simulator
+Submodule `qemu-custom/` is added for custom qemu simulator build.
+You should build from the source.
+Refer to the `README.md` file at `qemu-custom/` submodule for building.
+
+### Writing the BSP for Custom Accelerator
+Refer to [01_adding_custom_device.md](docs/01_adding_custom_device.md) for details.
+
 
 ## Quick Start
 1. Build the BSP build script
     ```bash
-    ./build.sh
+    cd ~/project/coral/rv-qemu-simulator
+
+    # Clean build
+    rm -rf build
+    mkdir build
+    cd build
+    cmake -DCMAKE_TOOLCHAIN_FILE=../toolchain-riscv64.cmake ..
+    make    
     ```
 
 2. Run the qemu run script
-    ```bash
-    ./scripts/run-qemu.sh
-    ```
+    ``` bash
+    cd ~/project/coral/rv-qemu-simulator
+    ./scripts/run-qemu-custom.sh
+    ``` 

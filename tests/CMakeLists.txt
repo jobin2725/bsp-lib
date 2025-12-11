@@ -3,6 +3,7 @@ add_executable(hello_world
     hello_world.c
 )
 
+# Adder Accelerator Test
 add_executable(test_adder
     test_adder.c
 )
@@ -21,6 +22,10 @@ target_link_libraries(test_adder
 # Linker Script Dependency
 set_target_properties(hello_world PROPERTIES
     LINK_DEPENDS ${LINKER_SCRIPT}
+)
+
+set_target_properties(test_adder PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
 )
 
 # Printout info after build

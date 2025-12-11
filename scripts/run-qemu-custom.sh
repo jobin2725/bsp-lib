@@ -6,7 +6,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 
 # Custom QEMU path
-QEMU="${HOME}/project/coral/qemu/build/qemu-system-riscv64"
+QEMU="${PROJECT_ROOT}/qemu-custom/build/qemu-system-riscv64"
 
 # Kernel path
 KERNEL="${PROJECT_ROOT}/build/bin/test_adder"

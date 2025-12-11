@@ -6,7 +6,7 @@
 
 // Memory Map for QEMU virt machine
 #define UART0_BASE      0x10000000UL
-#define ADDER_BASE      0x10010000UL
+#define ADDER_BASE      0x10010000UL    /* Adder Accelerator */
 #define CLINT_BASE      0x02000000UL
 #define PLIC_BASE       0x0C000000UL
 #define RAM_BASE        0x80000000UL

@@ -1,0 +1,3 @@
+[submodule "qemu-custom"]
+	path = qemu-custom
+	url = https://github.com/jobin2725/qemu-custom.git
