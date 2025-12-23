@@ -15,8 +15,7 @@ set(BSP_DRIVER_SOURCES
 
 # Library Files
 set(BSP_LIB_SOURCES
-    lib/printf.c
-    lib/malloc.c
+    lib/syscalls.c
 )
 
 # BSP Static Library Generation

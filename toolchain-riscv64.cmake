@@ -2,10 +2,9 @@
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR riscv64)
 
-# Toolchain Path
-#set(RISCV_TOOLCHAIN_PATH /opt/toolchain/riscv)
-#set(TOOLCHAIN_PREFIX ${RISCV_TOOLCHAIN_PATH}/bin/riscv64-unknown-elf-)
-set(TOOLCHAIN_PREFIX riscv64-unknown-elf-)
+# Toolchain Path - use medany-built toolchain
+set(RISCV_TOOLCHAIN_PATH ${CMAKE_SOURCE_DIR}/lib/riscv-newlib)
+set(TOOLCHAIN_PREFIX ${RISCV_TOOLCHAIN_PATH}/bin/riscv64-unknown-elf-)
 
 # Compiler Setup
 set(CMAKE_C_COMPILER ${TOOLCHAIN_PREFIX}gcc)
@@ -33,7 +32,9 @@ set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g3")
 set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG")
 
 # ASM Flag
-set(CMAKE_EXE_LINKER_FLAGS_INIT "-nostartfiles -nostdlib -static")
+# -nostartfiles: use our crt0.S
+# link with newlib (remove -nostdlib to allow libc/libgcc)
+set(CMAKE_EXE_LINKER_FLAGS_INIT "-nostartfiles -static")
 
 # sysroot disable (for baremetal)
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)

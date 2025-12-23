@@ -17,6 +17,9 @@ build
 *.dtb
 *.dts
 
+# Built toolchain (too large)
+lib/
+
 # Python
 __pycache__
 *.log
