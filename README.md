@@ -1,13 +1,21 @@
 # Board Support Package (BSP) for SSL RISC-V SoC
 
 ## Pre-requisites
-* RISC-V Toolchain
+* RISC-V Toolchain (medany code model)
+
+    Build custom toolchain with `-mcmodel=medany` for 0x80000000+ address support:
     ```bash
-    wget https://github.com/riscv-collab/riscv-gnu-toolchain/releases/download/2024.09.03/riscv64-elf-ubuntu-22.04-gcc-
-    nightly-2024.09.03-nightly.tar.gz
-    tar -xzf riscv64-elf-ubuntu-*.tar.gz -C /opt/
-    export PATH=/opt/riscv/bin:$PATH
+    git clone https://github.com/riscv-collab/riscv-gnu-toolchain.git
+    cd riscv-gnu-toolchain
+    ./configure \
+        --prefix=/PATH/TO/bsp-lib/lib/riscv-newlib \
+        --disable-multilib \
+        --disable-gdb \
+        --with-cmodel=medany
+    make newlib -j$(nproc)
     ```
+
+    See [docs/NEWLIB_IMPLEMENTATION.md](docs/NEWLIB_IMPLEMENTATION.md) for details.
 
 ## Setup
 ### 1. Additional Packages

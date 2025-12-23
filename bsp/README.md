@@ -19,11 +19,12 @@ rv-qemu-simulator/
 │   │   ├── clint.c             # Timer Driver
 │   │   └── plic.c              # Interrupt Controller
 │   └── lib/
-│       ├── printf.c            # printf Implementation
-│       └── malloc.c            # Simple Heap Allocator
+│       └── syscalls.c          # Newlib Syscall Stubs
 ├── tests/
-│   └── hello_world.c           # Basic Test
+│   ├── hello_world.c           # Basic Test
+│   └── test_newlib.c           # Newlib Syscalls Test
 ├── scripts/
-│   └── run-qemu.sh             # QEMU Run Script
+│   ├── run-qemu-custom.sh      # QEMU Run Script
+│   └── run-test-newlib.sh      # Newlib Test Runner
 └── CMakeLists.txt              # Build File
 ```
