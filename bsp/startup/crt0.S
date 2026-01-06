@@ -4,6 +4,10 @@
 _start:
     # a0 = hartid, a1 = dtb pointer
 
+    # Enable FPU (set mstatus.FS = 01 Initial)
+    li t0, (1 << 13)    # FS field bits [14:13] = 01
+    csrs mstatus, t0
+
     # Stack Ptr Initialization
     la sp, __stack_top
 

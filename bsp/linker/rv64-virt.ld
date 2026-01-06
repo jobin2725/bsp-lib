@@ -16,16 +16,20 @@ SECTIONS
     } > RAM
 
     .rodata : { *(.rodata*) } > RAM
-    .data : { *(.data*) } > RAM
+
+    .data : {
+        *(.data*)
+        *(.sdata*)
+    } > RAM
 
     .bss : {
         __bss_start = .;
         *(.bss*)
+        *(.sbss*)
         *(COMMON)
+        . = ALIGN(8);
         __bss_end = .;
     } > RAM
-
-    . = ALIGN(8);
 
     __heap_start = .;
     __heap_end = ORIGIN(RAM) + LENGTH(RAM) - 0x100000; /* 1MB stack */
