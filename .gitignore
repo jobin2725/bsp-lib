@@ -20,6 +20,15 @@ build
 # Built toolchain (too large)
 lib/
 
+scripts/run-qemu.sh
+
+# BUT allow bsp/lib
+!bsp/lib/
+!bsp/lib/**
+
 # Python
 __pycache__
 *.log
+
+
+riscvqemu.pdf

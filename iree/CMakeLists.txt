@@ -156,6 +156,31 @@ target_link_libraries(firmware
 )
 
 # ==============================================================================
+# vadd_i32 with Custom Accelerator
+# ==============================================================================
+
+set(MODEL_VADD_I32_DIR ${CMAKE_SOURCE_DIR}/build/model_vadd_i32)
+
+# vadd_i32 firmware using custom accelerator kernel
+add_executable(firmware_vadd_i32
+    ${BSP_SOURCES}
+    ${BSP_DIR}/bsp/drivers/adder_accelerator.c  # BSP accelerator driver
+    ${MODEL_VADD_I32_DIR}/vadd_i32_vmfb.c
+    ${CMAKE_SOURCE_DIR}/src/main_vadd_i32.c
+    ${CMAKE_SOURCE_DIR}/src/vadd_i32_accel.c
+)
+
+target_include_directories(firmware_vadd_i32 PRIVATE
+    ${MODEL_VADD_I32_DIR}
+)
+
+# Link against IREE runtime (but NOT vadd_i32.o - we use our own kernel)
+target_link_libraries(firmware_vadd_i32
+    ${IREE_RUNTIME_LIBS}
+    m
+)
+
+# ==============================================================================
 # Custom Targets
 # ==============================================================================
 
